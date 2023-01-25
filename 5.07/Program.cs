@@ -14,9 +14,11 @@ namespace Program
                 Console.WriteLine($"{länderInt[i]}: {länderStr[i]}");
             }
 
-            Console.Write("\nVälj de länder som ska skrivas ut igen genom att skriva deras nummer på en rad: "); string[] valStr = Console.ReadLine().Split(" ");
+            Console.Write("\nVälj de länder som ska skrivas ut igen genom att skriva deras nummer på en rad: "); char[] valStr = Console.ReadLine().ToCharArray();
 
-            int[] valInt = Array.ConvertAll(valStr, int.Parse);
+            Console.WriteLine();
+
+            int[] valInt = Array.ConvertAll(valStr, x => (int)Char.GetNumericValue(x));
 
             for (int i = 0; i < länderStr.Length; i++)
             {
